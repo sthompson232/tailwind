@@ -1,19 +1,78 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container m-4">
-  <div class="h-64">
-    <div class="p-4 bg-green-600">
-      <h1 class="font-bold text-secondary">Tailwind CSS Demo</h1>
-    </div>
-    <div class="p-4 bg-green-300 h-full">
-      <h2 class="text-primary">Have much fun using Tailwind CSS!</h2>
-      <p>This should be written in roboto</p>
-    </div>
-  </div>
-  
-  <button class="btn mx-12">I am a button</button>
+
+<div class="p-4 bg-secondary">
+  <h1 class="display-1 font-bold text-white">Tailwind CSS Demo</h1>
+</div>
+<div class="p-4 bg-grey-mid">
+  <h2 class="text-white">Have much fun using Tailwind CSS!</h2>
 </div>
 
+<div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">
+  <div class="p-6 border-b border-gray-200">
+    <h1>Card Title</h1>
+    <p>Lorem Ipsum </p>
+  </div>
+  <div class="p-4">
+    <button class="btn text-white btn-block"><p>Click Me</p></button>
+  </div>
+</div>
 
+<!-- COLSPAN EXAMPLE -->
+<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 h-100">
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+  <div class="card border">COLSPAN</div>
+</div>
+
+<div class="grid gap-4 grid-cols-12 h-64">
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 card border">COLSPAN</div>
+</div>
+
+<!-- ROW SPAN EXAMPLE -->
+<div class="grid gap-4 grid-rows-3 grid-flow-col h-64">
+  <div class="card hover:bg-secondary bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+  <div class="card bg-primary">1</div>
+</div>
+
+<!-- ROW SPAN EXAMPLE -->
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="row-span-3 bg-secondary rounded">
+    <div class="text-center">
+      1
+    </div>
+  </div>
+  <div class="col-span-2 bg-secondary rounded">
+    <div class="text-center">
+      2
+    </div>
+  </div>
+  <div class="row-span-2 col-span-2 bg-secondary rounded">
+    <div class="text-center">
+      3
+    </div>
+  </div>
+</div>
 {% endblock %}
