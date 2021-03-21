@@ -2,7 +2,7 @@
 
 {% block content %}
 <!-- This example requires Tailwind CSS v2.0+ -->
-<nav x-data="{ burger: false }" class="bg-white shadow">
+<nav  x-data="{burger:null}" class="bg-white shadow">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <div class="flex">
@@ -60,7 +60,7 @@
       </div>
       <div class="-mr-2 flex items-center sm:hidden">
         <!-- Mobile menu button -->
-        <button x-on:click="burger = !burger" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+        <button @click="burger !== 1 ? burger = 1 : burger = null" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
@@ -88,7 +88,8 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div x-show="burger" class="sm:hidden" id="mobile-menu">
+  <div x-ref="container1" x-bind:style="burger == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
+      class="sm:hidden relative overflow-hidden transition-all max-h-0 duration-700" id="mobile-menu">
     <div class="pt-2 pb-3 space-y-1">
       <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
       <a href="#" class="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Dashboard</a>
@@ -457,13 +458,6 @@
 
 
 
-
-
-
-
-
-
-
     </main>
   </div>
 </div>
@@ -478,6 +472,27 @@
 
 
 
-
+<div class="bg-gray-100 h-screen w-screen flex justify-center">
+  <div class="mr-8">
+<div class="bg-white max-w-xl mx-auto border border-gray-200" x-data="{selected:null}">
+		<ul class="shadow-box">		
+      <li class="relative border-b border-gray-200">
+          <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 1 ? selected = 1 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                Should I use reCAPTCHA v2 or v3?</span>
+              <span class="ico-plus"></span>
+            </div>
+            </button>
+            <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>reCAPTCHA v2 is not going away! We will continue to fully support and improve security and usability for v2.</p>
+            </div>
+          </div>
+        </li>
+			</ul>
+	  </div>
+  </div>
+</div>
 
 {% endblock %}
