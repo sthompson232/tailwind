@@ -15,7 +15,7 @@
 /* CUSTOM COMPONENTS AND CLASSES */
 
 .btn {
-    @apply inline-flex items-center justify-center px-5 py-3 font-medium rounded-md bg-primary hover:bg-primary-hov focus:outline-none;
+    @apply rounded-full inline-flex items-center justify-center px-5 py-3 rounded-md bg-primary hover:bg-primary-hov focus:outline-none cursor-pointer;
 }
 
 .btn-block {
