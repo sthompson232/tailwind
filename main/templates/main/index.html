@@ -390,8 +390,8 @@
             <button @click="modal = true" class="btn">Show Modal</button>
             <!-- This example requires Tailwind CSS v2.0+ -->
             <div x-show="modal"
-           @click.away="modal = false" class="fixed z-10 inset-0 overflow-y-auto">
-              <div @click.on="modal = false" class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+ class="fixed z-10 inset-0 overflow-y-auto">
+              <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <!--
                   Background overlay, show/hide based on modal state.
           
@@ -419,6 +419,7 @@
                     To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 -->
                 <div x-show = "modal"
+                @click.away="modal = false"
                 x-transition:enter="transition ease-out duration-500"
                 x-transition:enter-start="transform opacity-0 scale-0"
                 x-transition:enter-end="transform opacity-100"
@@ -454,45 +455,9 @@
             </div>
           </div>
 
-
-
-
-
     </main>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-<div class="bg-gray-100 h-screen w-screen flex justify-center">
-  <div class="mr-8">
-<div class="bg-white max-w-xl mx-auto border border-gray-200" x-data="{selected:null}">
-		<ul class="shadow-box">		
-      <li class="relative border-b border-gray-200">
-          <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 1 ? selected = 1 : selected = null">
-            <div class="flex items-center justify-between">
-              <span>
-                Should I use reCAPTCHA v2 or v3?</span>
-              <span class="ico-plus"></span>
-            </div>
-            </button>
-            <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-            <div class="p-6">
-              <p>reCAPTCHA v2 is not going away! We will continue to fully support and improve security and usability for v2.</p>
-            </div>
-          </div>
-        </li>
-			</ul>
-	  </div>
-  </div>
-</div>
 
 {% endblock %}
